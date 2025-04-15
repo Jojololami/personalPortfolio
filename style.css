@@ -18,13 +18,14 @@ html {
 body {
     background: #323232;
     color: #000000;
+    
 }
 #header {
     width: 100%;
     height: 100vh;
-    background-image: url(images/bgrd.jpg);
+    background-image: url(images/main.png);
     background-size: cover;
-    background-position: center;  
+    background-position: left;  
 }
 .container {
     padding: 20px 10%;
@@ -40,7 +41,7 @@ nav ul li {
     
 }
 nav ul li a {
-    color: #323232;
+    color: #1abc9c;
     text-decoration: none;
     position: relative;
     font-family: myFont2;
@@ -60,7 +61,7 @@ nav ul li a:hover::after {
     width: 100%;
 }
 .header-text {
-    color: #323232;
+    color: #1abc9c;
     
 }
 .header-text p {
@@ -69,7 +70,7 @@ nav ul li a:hover::after {
     font-family: myFont1;
 }
 .header-text p span {
-    color: #000000 ;
+    color: #1abc9c ;
     font-family: myFont1;
 }
 .header-text h1 {
@@ -317,6 +318,10 @@ nav .fa-solid {
 }
 
 @media only screen and (max-width: 600px) {
+
+    #header {
+        background-image: url(images/phone.png);
+    }
 
     .header-text {
         margin-top: 100%;
