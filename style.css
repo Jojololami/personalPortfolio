@@ -84,6 +84,9 @@ nav .fa-solid {
     font-size: 5rem;
     font-family: myFont2;
 }
+#close-icon {
+    display: none;
+}
 /* ------------about ------------ */
 #about {
     padding-top: 80px;
@@ -329,7 +332,6 @@ form .btn2 {
 
 
 @media only screen and (max-width: 600px) {
-
 
     .afterheader-text {
         margin-top: 10%;

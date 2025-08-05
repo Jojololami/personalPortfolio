@@ -12,14 +12,19 @@ function opentab(tabname) {
 }
 
 var sidemenu = document.getElementById("sidemenu");
+var menuIcon = document.getElementById("menu-icon");
+var closeIcon = document.getElementById("close-icon");
 
 function openmenu() {
-    sidemenu.style.right = "0";
+   sidemenu.style.right = "0";
+  menuIcon.style.display = "none";       // hide hamburger icon
+  closeIcon.style.display = "block";     // show close icon
 }
 function closemenu() {
     sidemenu.style.right = "-200px";
+  menuIcon.style.display = "block";      // show hamburger icon
+  closeIcon.style.display = "none";      // hide close icon
 }
-
 
   const scriptURL = 'https://script.google.com/macros/s/AKfycbyOugxYnFAghg2bvJJqsRV2h3i0YGOAtnD2xcKemfQtuc8S9Rqd51UcJJf_Q2tABIk2/exec'
   const form = document.forms['submit-to-google-sheet'];
