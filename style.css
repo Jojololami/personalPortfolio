@@ -17,8 +17,9 @@ html {
   src: url(nuget.otf);
 }
 body {
-  background: #323232;
+  background: #fdf3e3;
   color: #000000;
+  overflow-x: hidden; /* safety net so nothing causes horizontal scroll */
 }
 
 .container {
@@ -34,7 +35,7 @@ nav ul li {
   margin: 1rem 2rem;
 }
 nav ul li a {
-  color: #1abc9c;
+  color: #8a3a42;
   text-decoration: none;
   position: relative;
   font-family: myFont2;
@@ -44,7 +45,7 @@ nav ul li a::after {
   content: " ";
   width: 0;
   height: 3px;
-  background: #ddd0c8;
+  background: black;
   position: absolute;
   left: 0;
   bottom: -6px;
@@ -57,29 +58,90 @@ nav .fa-solid {
   display: none;
 }
 /* After header section */
+
+
+  .photo-wrap {
+    flex: 1 1 30rem;
+    display: flex;
+    justify-content: center;
+    min-width: 0;
+    position: relative;
+  }
+  .photo-blob {
+    position: absolute;
+    width: 105%;
+    height: 105%;
+    top: -3%;
+    left: -2%;
+    background: #d9c08f;
+    border-radius: 40% 60% 55% 45% / 50% 45% 55% 50%;
+    z-index: 0;
+  }
+  .photo-frame {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 32rem;
+  
+    border-radius: 12px;
+    box-shadow: 0 0 0 2px #8a3b2e;
+    overflow: hidden;
+  }
+  .photo-frame img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+  }
+ 
 #after_header {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 2rem;
-  padding-left: 6rem;
+  padding: 2rem 6rem;
+}
+#after_header div:last-child {
+  flex: 1 1 30rem;
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+
+#after_header img {
+  width: 100%;
+  max-width: 45rem;
+  height: auto;
+  object-fit: contain;
 }
 .afterheader-text {
-  color: #1abc9c;
+  color: #8a3a42;
+  flex: 1 1 30rem;
+  min-width: 0;
 }
 .afterheader-text p {
   margin-top: 10%;
-  font-size: 5rem;
+  font-size: clamp(2.6rem, 6vw, 5rem);
   font-family: myFont2;
 }
 .afterheader-text p span {
-  color: #1abc9c;
+  color: #8a3a42;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 .afterheader-text h1 {
   margin-top: 5%;
-  font-size: 5rem;
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
   font-family: myFont2;
+}
+.afterheader-text h2 {
+  margin-top: 2.6rem;
+  font-size: 1.5rem;
+  color: #8a3a42;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  max-width: 30ch;
+  line-height: 1.5;
+  font-weight: 400;
 }
 #close-icon {
   display: none;
@@ -87,11 +149,11 @@ nav .fa-solid {
 /* ------------about ------------ */
 #about {
   padding-top: 80px;
-  padding-left: 10%;
-  color: white;
+  padding: 80px 6% 0;
+  color: #8a3a42;
 }
 #abt_container {
-  padding-right: 3rem;
+  padding-right: 0;
 }
 .row {
   display: flex;
@@ -107,22 +169,27 @@ nav .fa-solid {
 }
 .about-col-2 {
   flex-basis: 60%;
+  min-width: 0;
 }
 .about-col-2 p {
-  font-size: 1.5rem;
+  font-size: clamp(1.4rem, 1.1vw + 1rem, 1.5rem);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+   font-weight: 400;
 }
 .abt-me {
-  font-size: 5rem;
+  font-size: clamp(3rem, 5vw, 5rem);
   font-family: myFont2;
-  color: white;
+  color: #8a3a42;
 }
 
 .tab-titles {
   display: flex;
+  flex-wrap: wrap;
   margin: 2rem 0 4rem;
+  gap: 2rem 5rem;
 }
 .tab-links {
-  margin-right: 5rem;
+  margin-right: 0;
   font-size: 1.8rem;
   font-weight: 600;
   cursor: pointer;
@@ -132,7 +199,7 @@ nav .fa-solid {
   content: " ";
   width: 0;
   height: 3px;
-  background: #1abc9c;
+  background: black;
   position: absolute;
   left: 0;
   bottom: -8px;
@@ -150,12 +217,12 @@ nav .fa-solid {
   margin: 10px 0;
 }
 .tab-contents1 ul li span {
-  color: #1abc9c;
+  color: #7a6060;
   font-size: 12px;
 }
 .external-link {
   font-size: 14px;
-  color: #1abc9c;
+  color: #7a6060;
 }
 .tab-contents {
   display: none;
@@ -168,7 +235,7 @@ nav .fa-solid {
 .work-list {
   margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
   grid-gap: 40px;
   grid-auto-rows: 1fr;
 }
@@ -188,7 +255,7 @@ nav .fa-solid {
 .layer {
   width: 100%;
   height: 0%;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), #1abc9c);
+  background: linear-gradient(rgba(0, 0, 0, 0.6), #7a6060);
   border-radius: 10px;
   position: absolute;
   left: 0;
@@ -236,35 +303,33 @@ h3 {
   display: block;
   margin: 50px auto;
   width: fit-content;
-  border: 1px solid #1abc9c;
+  border: 1px solid #7a6060;
   padding: 14px 50px;
   border-radius: 6px;
   text-decoration: none;
-  color: #fff;
+  color: black;
   transition: background 0.5s;
   font-size: 1.5rem;
 }
 .btn:hover {
-  background: #1abc9c;
+  background: #7a6060;
 }
 
 /* ------------ Contact Me ------------ */
-.row {
-  display: flex;
-  flex-wrap: wrap;
-}
 .contact-left {
   flex-basis: 35%;
+  min-width: 28rem;
 }
 .contact-right {
   flex-basis: 60%;
+  min-width: 28rem;
 }
 .contact-left p {
   margin-top: 20px;
   font-size: 1.5rem;
 }
 .contact-left p i {
-  color: #1abc9c;
+  color: black;
   margin-right: 15px;
   font-size: 25px;
 }
@@ -280,12 +345,12 @@ h3 {
   transition: transform 0.5s;
 }
 .social-icons a:hover {
-  color: #1abc9c;
+  color: #cfe8b9;
   transform: translateX(-5px);
 }
 .btn.btn2 {
   display: inline-block;
-  background: #1abc9c;
+  background: transparent;
 }
 .contact-right form {
   width: 100%;
@@ -295,10 +360,10 @@ form textarea {
   width: 100%;
   border: 0;
   outline: none;
-  background: #262626;
+  background: #ababab;
   padding: 15px;
   margin: 15px 0;
-  color: #fff;
+  color: black;
   font-size: 18px;
   border-radius: 6px;
 }
@@ -308,8 +373,13 @@ form .btn2 {
   margin-top: 20px;
   cursor: pointer;
 }
+.btn2:hover {
+  background: #7a6060;
+}
 .copyright {
   display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
   justify-content: space-between;
   padding-left: 10%;
   padding-right: 10%;
@@ -320,25 +390,71 @@ form .btn2 {
   font-weight: 300;
   margin-top: 20px;
   font-size: 1.5rem;
+    color: white;
 }
 .arrow a {
   text-decoration: underline;
-  color: #1abc9c;
+  color: white;
 }
 
-/* ------------ CSS for small screen ------------ */
+/* ============================================
+   TABLET BREAKPOINT (601px - 900px)
+   ============================================ */
+@media only screen and (max-width: 900px) {
+  .container {
+    padding: 2rem 6%;
+  }
 
+  #after_header {
+    padding: 2rem 4%;
+    text-align: center;
+  }
+
+  #after_header img {
+    max-width: 32rem;
+  }
+
+  #about {
+    padding: 60px 4% 0;
+  }
+
+  .about-col-1,
+  .about-col-2 {
+    flex-basis: 100%;
+  }
+
+  .about-col-1 {
+    margin-bottom: 30px;
+    max-width: 40rem;
+  }
+
+  .contact-left,
+  .contact-right {
+    flex-basis: 100%;
+    min-width: 0;
+  }
+}
+
+/* ============================================
+   MOBILE BREAKPOINT (max-width: 600px)
+   ============================================ */
 @media only screen and (max-width: 600px) {
+  .container {
+    padding: 2rem 5%;
+  }
+
+  #after_header {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 5%;
+  }
+
+  #after_header img {
+    max-width: 26rem;
+  }
+
   .afterheader-text {
     margin-top: 10%;
-    font-size: 1.6rem;
-  }
-  .afterheader-text p {
-    font-size: 3rem;
-  }
-
-  .afterheader-text h1 {
-    font-size: 4rem;
   }
 
   nav .fa-xmark {
@@ -349,18 +465,18 @@ form .btn2 {
     position: absolute;
     top: 20px;
     right: 20px;
-    color: #1abc9c;
+    color: #8a3a42;
     z-index: 1001;
     cursor: pointer;
   }
   nav ul {
-    background: #262626; /* darker background for contrast */
+    background: #262626;
     position: fixed;
     top: 0;
     right: -200px;
     width: 200px;
     height: 100vh;
-    padding-top: 70px; /* leaves space for the close icon */
+    padding-top: 70px;
     z-index: 1000;
     transition: right 0.5s;
     color: #fff;
@@ -378,25 +494,46 @@ form .btn2 {
     color: #fff;
   }
 
-  .abt-me {
-    font-size: 40px;
+  #about {
+    padding: 50px 5% 0;
   }
+
   .about-col-1,
   .about-col-2 {
     flex-basis: 100%;
-    margin-right: 10%;
+    margin-right: 0;
   }
   .about-col-1 {
     margin-bottom: 30px;
+    max-width: 100%;
   }
+
+  .tab-titles {
+    gap: 1.5rem 3rem;
+    margin: 1.5rem 0 3rem;
+  }
+
+  .tab-links {
+    font-size: 1.6rem;
+  }
+
+  .work-list {
+    grid-template-columns: 1fr;
+  }
+
   .contact-left,
   .contact-right {
     flex-basis: 100%;
+    min-width: 0;
   }
+
   .copyright {
     font-size: 14px;
+    flex-direction: column;
+    text-align: center;
   }
 }
+
 #msg {
   color: #61b752;
   margin-top: -40px;
