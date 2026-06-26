@@ -457,6 +457,10 @@ form .btn2 {
     margin-top: 10%;
   }
 
+  .afterheader-text h2 {
+    margin-left: auto;
+    margin-right: auto;
+  }
   nav .fa-xmark {
     display: none;
   }
