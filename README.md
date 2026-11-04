@@ -8,7 +8,7 @@ Personal portfolio website of **Oyinkansola Odunsi**, a Frontend Engineer with 3
 
 ## Design System & Aesthetic
 
-- **Warm Obsidian & Amber Gold Theme**: A bespoke, warm dark developer theme engineered with deep obsidian charcoal (`#0c0a09`), warm basalt cards (`#141210`), radiant honey gold (`#f59e0b`, `#fbbf24`), and warm bronze accents (`#e07a38`) &mdash; tailored to complement her personal studio photography.
+- **Editorial Nude & Cashmere Theme**: A bespoke, warm nude and classy developer theme engineered with soft cashmere cream (`#f8f5ee`), warm ivory cards (`#ffffff`), deep roasted espresso typography (`#1e1b18`), and muted chestnut/antique bronze accents (`#94633d`) &mdash; custom-tailored to complement her personal studio photography.
 - **Glassmorphism & Ambient Lighting**: Smooth frosted glass surfaces (`backdrop-filter: blur(16px)`), subtle golden border lighting, and soft radial glows.
 - **Modern Typography**: High-readability geometric sans-serif (**Plus Jakarta Sans**) paired with monospace code accents (**Fira Code**).
 - **Responsive & Touch-First**: Mobile-first fluid grid and flexbox architecture tested across mobile (<480px), tablet (<768px), and desktop breakpoints with strict adherence to 48px touch targets and zero horizontal scroll.
@@ -26,8 +26,9 @@ Personal portfolio website of **Oyinkansola Odunsi**, a Frontend Engineer with 3
    - **Tech4Dev / Women Techsters** *(09/2023 – 05/2024)* &mdash; *Healthy Diet for All* & technical documentation.
 4. **Featured Projects**: Bento-style structured showcase with live demo links, category overlay badges, and an expandable *"Show More / Show Fewer Projects"* toggle.
 5. **Technical Skills**: Four categorized competency cards covering Frameworks & Libraries, Languages & Core, Architecture & APIs, and Tools & Workflow.
-6. **Contact Section**: Split card layout featuring direct channels (Email, Phone/WhatsApp, Remote Location, Socials) and an asynchronous **Google Sheets Form** with loading spinners and validation feedback.
-7. **Smooth Navigation & Back to Top**: Sticky glassmorphic navbar with mobile drawer, plus a dedicated smooth-scrolling *"Back to Top"* utility.
+6. **Writing & Content**: Compact secondary section highlighting 4+ years of SEO content, research, and copywriting, with direct links to writing samples and writing résumé.
+7. **Contact Section**: Split card layout featuring direct channels (Email, Phone/WhatsApp, Remote Location, Socials) and an asynchronous **Google Sheets Form** with loading spinners and validation feedback.
+8. **Smooth Navigation & Back to Top**: Sticky glassmorphic navbar with mobile drawer, plus a dedicated smooth-scrolling *"Back to Top"* utility.
 
 ---
 
@@ -46,9 +47,9 @@ Personal portfolio website of **Oyinkansola Odunsi**, a Frontend Engineer with 3
 
 ```text
 personalPortfolio/
-├── images/        # Screenshots, photo assets, and Oyinkansola_Odunsi_Resume_2026.pdf
+├── images/        # Screenshots, photo assets, frontend resume, and writing resume
 ├── index.html     # Semantic page markup
-├── style.css      # Warm Obsidian & Amber Gold stylesheet
+├── style.css      # Editorial Nude & Cashmere stylesheet
 ├── script.js      # Interactivity, tabs, drawer, and Google Sheets form logic
 ├── README.md      # Comprehensive project documentation
 ├── dahlia.otf     # Legacy font
