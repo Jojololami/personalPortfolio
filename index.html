@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
     <title>Oyinkansola Odunsi | Frontend Engineer</title>
     <meta name="description" content="Portfolio of Oyinkansola Odunsi - Frontend Engineer with 3 years of hands-on experience building modern, responsive, accessible web applications and extensions with React, Next.js, SvelteKit, and TypeScript.">
+    <script>
+        try {
+            const savedTheme = localStorage.getItem("portfolio-theme");
+            if (["light", "neutral", "dark"].includes(savedTheme)) {
+                document.documentElement.dataset.theme = savedTheme;
+            }
+        } catch (error) {
+            console.warn("Could not load the saved color mode.", error);
+        }
+    </script>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,6 +40,11 @@
             </a>
             
             <ul id="sidemenu" class="nav-links">
+                <li class="nav-drawer-header">
+                    <button class="drawer-close-btn" id="close-icon" type="button" aria-label="Close menu" onclick="closemenu()">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#portfolio" class="nav-link">Projects</a></li>
@@ -44,11 +60,14 @@
             </ul>
 
             <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Neutral color mode. Switch to light mode" title="Neutral color mode. Switch to light mode">
+                    <i class="fa-solid fa-circle-half-stroke" id="theme-icon" aria-hidden="true"></i>
+                </button>
                 <a href="images/Oyinkansola_Odunsi_Resume_2026.pdf" target="_blank" class="btn btn-outline btn-sm desktop-only">
                     <span>Resume</span>
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
-                <button class="menu-toggle" id="menu-icon" aria-label="Open menu" onclick="openmenu()">
+                <button class="menu-toggle" id="menu-icon" type="button" aria-label="Open menu" aria-controls="sidemenu" aria-expanded="false" onclick="openmenu()">
                     <i class="fa-solid fa-bars-staggered"></i>
                 </button>
             </div>
@@ -744,7 +763,7 @@
                                     <div class="channel-icon">
                                         <i class="fa-solid fa-envelope"></i>
                                     </div>
-                                    <div>
+                                    <div class="channel-details">
                                         <span class="channel-label">Email Me</span>
                                         <span class="channel-value">oyinkansolaodunsi23@gmail.com</span>
                                     </div>
@@ -754,7 +773,7 @@
                                     <div class="channel-icon">
                                         <i class="fa-solid fa-phone"></i>
                                     </div>
-                                    <div>
+                                    <div class="channel-details">
                                         <span class="channel-label">Call / WhatsApp</span>
                                         <span class="channel-value">+234 811 225 8793</span>
                                     </div>
@@ -764,7 +783,7 @@
                                     <div class="channel-icon">
                                         <i class="fa-solid fa-location-dot"></i>
                                     </div>
-                                    <div>
+                                    <div class="channel-details">
                                         <span class="channel-label">Location</span>
                                         <span class="channel-value">Nigeria (Remote worldwide)</span>
                                     </div>

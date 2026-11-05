@@ -8,7 +8,8 @@ Personal portfolio website of **Oyinkansola Odunsi**, a Frontend Engineer with 3
 
 ## Design System & Aesthetic
 
-- **Editorial Nude & Cashmere Theme**: A bespoke, warm nude and classy developer theme engineered with soft cashmere cream (`#f8f5ee`), warm ivory cards (`#ffffff`), deep roasted espresso typography (`#1e1b18`), and muted chestnut/antique bronze accents (`#94633d`) &mdash; custom-tailored to complement her personal studio photography.
+- **Three Color Modes**: Starts with the existing warm cashmere and bronze neutral palette, with optional porcelain-and-slate light and espresso-and-amber dark modes. The compact navigation icon cycles through all three modes and remembers the selection.
+- **Editorial Nude & Cashmere Theme**: The default neutral palette pairs soft cashmere cream (`#f8f5ee`), warm ivory cards (`#ffffff`), deep roasted espresso typography (`#1e1b18`), and muted chestnut/antique bronze accents (`#94633d`) &mdash; custom-tailored to complement her personal studio photography.
 - **Glassmorphism & Ambient Lighting**: Smooth frosted glass surfaces (`backdrop-filter: blur(16px)`), subtle golden border lighting, and soft radial glows.
 - **Modern Typography**: High-readability geometric sans-serif (**Plus Jakarta Sans**) paired with monospace code accents (**Fira Code**).
 - **Responsive & Touch-First**: Mobile-first fluid grid and flexbox architecture tested across mobile (<480px), tablet (<768px), and desktop breakpoints with strict adherence to 48px touch targets and zero horizontal scroll.

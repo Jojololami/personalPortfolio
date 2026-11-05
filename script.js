@@ -3,6 +3,51 @@
  * Interactive Functionality & Utilities
  */
 
+const themeToggle = document.getElementById("theme-toggle");
+const themeIcon = document.getElementById("theme-icon");
+const colorModes = ["neutral", "light", "dark"];
+const colorModeIcons = {
+  neutral: "fa-circle-half-stroke",
+  light: "fa-sun",
+  dark: "fa-moon"
+};
+
+function setColorMode(mode) {
+  if (!colorModes.includes(mode)) {
+    return;
+  }
+
+  document.documentElement.dataset.theme = mode;
+  const nextMode = colorModes[(colorModes.indexOf(mode) + 1) % colorModes.length];
+  const label = `${mode[0].toUpperCase()}${mode.slice(1)} color mode. Switch to ${nextMode} mode`;
+
+  if (themeToggle) {
+    themeToggle.setAttribute("aria-label", label);
+    themeToggle.title = label;
+  }
+
+  if (themeIcon) {
+    themeIcon.className = `fa-solid ${colorModeIcons[mode]}`;
+  }
+
+  try {
+    localStorage.setItem("portfolio-theme", mode);
+  } catch (error) {
+    console.warn("Could not save the selected color mode.", error);
+  }
+}
+
+if (themeToggle) {
+  const initialMode = colorModes.includes(document.documentElement.dataset.theme)
+    ? document.documentElement.dataset.theme
+    : "neutral";
+  setColorMode(initialMode);
+  themeToggle.addEventListener("click", () => {
+    const currentIndex = colorModes.indexOf(document.documentElement.dataset.theme);
+    setColorMode(colorModes[(currentIndex + 1) % colorModes.length]);
+  });
+}
+
 // -----------------------------------------------------------------------------
 // Tab Switching (Education & Certifications)
 // -----------------------------------------------------------------------------
@@ -28,11 +73,15 @@ function opentab(event, tabname) {
 // -----------------------------------------------------------------------------
 const sidemenu = document.getElementById("sidemenu");
 const menuBackdrop = document.getElementById("menu-backdrop");
+const menuToggle = document.getElementById("menu-icon");
 
 function openmenu() {
   if (sidemenu && menuBackdrop) {
     sidemenu.classList.add("open");
     menuBackdrop.classList.add("open");
+    if (menuToggle) {
+      menuToggle.setAttribute("aria-expanded", "true");
+    }
     document.body.style.overflow = "hidden"; // Prevent background scroll
   }
 }
@@ -41,12 +90,24 @@ function closemenu() {
   if (sidemenu && menuBackdrop) {
     sidemenu.classList.remove("open");
     menuBackdrop.classList.remove("open");
+    if (menuToggle) {
+      menuToggle.setAttribute("aria-expanded", "false");
+    }
     document.body.style.overflow = ""; // Restore scroll
   }
 }
 
 // Close drawer when any nav-link is clicked (on mobile)
 document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && sidemenu && sidemenu.classList.contains("open")) {
+      closemenu();
+      if (menuToggle) {
+        menuToggle.focus();
+      }
+    }
+  });
+
   const navLinks = document.querySelectorAll(".nav-link, .nav-resume-item a");
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
