@@ -28,7 +28,7 @@ Personal portfolio website of **Oyinkansola Odunsi**, a Frontend Engineer with 3
 4. **Featured Projects**: Bento-style structured showcase with live demo links, category overlay badges, and an expandable *"Show More / Show Fewer Projects"* toggle.
 5. **Technical Skills**: Four categorized competency cards covering Frameworks & Libraries, Languages & Core, Architecture & APIs, and Tools & Workflow.
 6. **Writing & Content**: Compact secondary section highlighting 4+ years of SEO content, research, and copywriting, with direct links to writing samples and writing résumé.
-7. **Contact Section**: Split card layout featuring direct channels (Email, Phone/WhatsApp, Remote Location, Socials) and an asynchronous **Google Sheets Form** with loading spinners and validation feedback.
+7. **Contact Section**: Split card layout featuring direct channels (Email, WhatsApp, Remote Location, Socials), a desktop WhatsApp QR code, and an asynchronous **Formspree contact form** with loading indicators and success/error feedback.
 8. **Smooth Navigation & Back to Top**: Sticky glassmorphic navbar with mobile drawer, plus a dedicated smooth-scrolling *"Back to Top"* utility.
 
 ---
@@ -51,7 +51,7 @@ personalPortfolio/
 ├── images/        # Screenshots, photo assets, frontend resume, and writing resume
 ├── index.html     # Semantic page markup
 ├── style.css      # Editorial Nude & Cashmere stylesheet
-├── script.js      # Interactivity, tabs, drawer, and Google Sheets form logic
+├── script.js      # Interactivity, tabs, drawer, and Formspree contact form logic
 ├── README.md      # Comprehensive project documentation
 ├── dahlia.otf     # Legacy font
 └── nuget.otf      # Legacy font

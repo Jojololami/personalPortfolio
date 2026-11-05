@@ -188,11 +188,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ---------------------------------------------------------------------------
-  // Google Sheets Contact Form Submission
+  // Formspree Contact Form Submission
   // ---------------------------------------------------------------------------
-  const scriptURL =
-    "https://script.google.com/macros/s/AKfycbyOugxYnFAghg2bvJJqsRV2h3i0YGOAtnD2xcKemfQtuc8S9Rqd51UcJJf_Q2tABIk2/exec";
-  const form = document.forms["submit-to-google-sheet"];
+  const formspreeEndpoint = "https://formspree.io/f/xdeebjor";
+  const form = document.getElementById("contact-form");
   const msg = document.getElementById("msg");
   const submitBtn = document.getElementById("submit-btn");
   const btnText = document.getElementById("btn-text");
@@ -208,8 +207,18 @@ document.addEventListener("DOMContentLoaded", function () {
         if (btnIcon) btnIcon.className = "fa-solid fa-spinner fa-spin";
       }
 
-      fetch(scriptURL, { method: "POST", body: new FormData(form) })
+      fetch(formspreeEndpoint, {
+        method: "POST",
+        body: new FormData(form),
+        headers: {
+          Accept: "application/json"
+        }
+      })
         .then((response) => {
+          if (!response.ok) {
+            throw new Error(`Formspree returned status ${response.status}`);
+          }
+
           if (msg) {
             msg.className = "form-feedback success";
             msg.innerHTML = '<i class="fa-solid fa-circle-check"></i> Thank you! Your message was sent successfully.';
@@ -227,7 +236,7 @@ document.addEventListener("DOMContentLoaded", function () {
           console.error("Form submission error!", error.message);
           if (msg) {
             msg.className = "form-feedback error";
-            msg.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Something went wrong. Please email me directly.';
+            msg.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Your message could not be sent. Please try again or email me directly.';
           }
         })
         .finally(() => {

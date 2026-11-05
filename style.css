@@ -1507,6 +1507,59 @@ button {
   gap: 0.8rem;
 }
 
+.whatsapp-qr-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1rem 0.75rem 0.75rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  background: var(--bg-soft);
+  color: var(--text-secondary);
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.whatsapp-qr-card:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-2px);
+}
+
+.whatsapp-qr-card img {
+  width: 144px;
+  height: 144px;
+  flex: 0 0 144px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+}
+
+.whatsapp-qr-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.whatsapp-qr-copy strong {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.whatsapp-qr-copy small {
+  max-width: 14rem;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.whatsapp-qr-card > .fa-whatsapp {
+  align-self: flex-start;
+  margin-left: auto;
+  color: var(--accent-emerald);
+  font-size: 1.2rem;
+}
+
 .social-btn {
   display: inline-flex;
   align-items: center;
@@ -1714,6 +1767,10 @@ button {
 @media screen and (max-width: 768px) {
   .section {
     padding: 4.5rem 0;
+  }
+
+  .whatsapp-qr-card {
+    display: none;
   }
 
   .desktop-only {
